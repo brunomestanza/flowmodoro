@@ -5,6 +5,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { RouterProvider } from 'react-router-dom'
 
 import { ThemeProvider } from './components/theme/theme-provider'
+import { Toaster } from './components/ui/sonner'
 import { queryClient } from './lib/react-query'
 import { router } from './routes'
 
@@ -14,6 +15,7 @@ export function App() {
       <Helmet titleTemplate="%s | Template" />
       <ThemeProvider storageKey="template-theme" defaultTheme="system">
         <QueryClientProvider client={queryClient}>
+          <Toaster richColors />
           <RouterProvider router={router} />
         </QueryClientProvider>
       </ThemeProvider>
