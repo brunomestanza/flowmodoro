@@ -1,13 +1,11 @@
 import './global.css'
 
-import { QueryClientProvider } from '@tanstack/react-query'
 import { Analytics } from '@vercel/analytics/react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { RouterProvider } from 'react-router-dom'
 
 import { ThemeProvider } from './components/theme/theme-provider'
 import { Toaster } from './components/ui/sonner'
-import { queryClient } from './lib/react-query'
 import { router } from './routes'
 
 export function App() {
@@ -15,11 +13,9 @@ export function App() {
     <HelmetProvider>
       <Helmet titleTemplate="%s | Template" />
       <ThemeProvider storageKey="template-theme" defaultTheme="system">
-        <QueryClientProvider client={queryClient}>
-          <Analytics />
-          <Toaster richColors />
-          <RouterProvider router={router} />
-        </QueryClientProvider>
+        <Analytics />
+        <Toaster richColors />
+        <RouterProvider router={router} />
       </ThemeProvider>
     </HelmetProvider>
   )
