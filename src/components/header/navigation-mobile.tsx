@@ -4,7 +4,7 @@ import { Button } from '../ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet'
 import { Navigation } from './navigation'
 
-export function AccountMenuMobile() {
+export function NavigationMobile() {
   return (
     <Sheet>
       <SheetTrigger asChild>
