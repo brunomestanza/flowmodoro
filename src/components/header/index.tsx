@@ -2,6 +2,7 @@ import { AlarmClock } from 'lucide-react'
 
 import { ThemeToggle } from '../theme/theme-toggle'
 import { Separator } from '../ui/separator'
+import { AccountMenuMobile } from './account-menu-mobile'
 import { Navigation } from './navigation'
 
 export function Header() {
@@ -18,12 +19,9 @@ export function Header() {
 
         <div className="ml-auto flex items-center gap-2">
           <ThemeToggle />
-          {/* <div className="hidden md:block">
-            <AccountMenuDesktop />
-          </div>
           <div className="block md:hidden">
             <AccountMenuMobile />
-          </div> */}
+          </div>
         </div>
       </div>
     </div>

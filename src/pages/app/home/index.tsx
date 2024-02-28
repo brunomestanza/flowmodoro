@@ -10,7 +10,7 @@ import { FlowmodoroTypeToggle } from './flowmodoro-type-toggle'
 import { HomeTimeButton } from './home-time-button'
 
 export function Home() {
-  const [secondsAmount, setSecondsAmount] = useState(51 * 60)
+  const [secondsAmount, setSecondsAmount] = useState(0)
   const [isCountingTime, setIsCountingTime] = useState(false)
   const [isFocusTime, setIsFocusTime] = useState(true)
   const [flowType, setFlowType] = useState<'dev-suggestion' | 'zoe-suggestion'>(
