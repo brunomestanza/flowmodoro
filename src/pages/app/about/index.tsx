@@ -47,7 +47,6 @@ export function About() {
           flow state), que consiste num período de grande foco e produtividade.
           O alarme e a pausa podem facilmente gerar a quebra do foco
         </li>
-        <li>3rd level of one-liners : 20 gold coins</li>
       </ul>
 
       <h2 className="border-b pb-2 text-3xl font-semibold tracking-tight">

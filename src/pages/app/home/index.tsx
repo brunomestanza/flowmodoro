@@ -1,4 +1,4 @@
-import { AlertTriangle, Bed, Briefcase, TimerOff } from 'lucide-react'
+import { Bed, Briefcase, TimerOff } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { toast } from 'sonner'
@@ -6,12 +6,16 @@ import { toast } from 'sonner'
 import { Clock } from '@/components/clock'
 
 import clockAlarmSound from '../../../assets/sounds/clock-alarm.mp3'
+import { FlowmodoroTypeToggle } from './flowmodoro-type-toggle'
 import { HomeTimeButton } from './home-time-button'
 
 export function Home() {
-  const [secondsAmount, setSecondsAmount] = useState(10 * 60)
+  const [secondsAmount, setSecondsAmount] = useState(51 * 60)
   const [isCountingTime, setIsCountingTime] = useState(false)
   const [isFocusTime, setIsFocusTime] = useState(true)
+  const [flowType, setFlowType] = useState<'dev-suggestion' | 'zoe-suggestion'>(
+    'dev-suggestion',
+  )
 
   function handleCancelFinishBreakTime(remainingTime: number) {
     setSecondsAmount(remainingTime)
@@ -25,19 +29,28 @@ export function Home() {
   }
 
   function finishFocusTime() {
-    const restTime = Math.round(secondsAmount / 5)
-    if (restTime <= 0) {
-      toast.error('O tempo de descanso deve ser maior que 0 segundos.', {
-        icon: <AlertTriangle />,
-      })
+    let restTime = 0
+    if (flowType === 'dev-suggestion') {
+      restTime = Math.round(secondsAmount / 5)
     } else {
-      setIsCountingTime(false)
-      setSecondsAmount(restTime)
-      setIsFocusTime(false)
-      toast.success('Período de foco finalizado.', {
-        icon: <Briefcase />,
-      })
+      const minutesOfFocus = Math.round(secondsAmount / 60)
+      if (minutesOfFocus <= 25) {
+        restTime = 5 * 60 // 5 minutes
+      } else if (minutesOfFocus > 25 && minutesOfFocus <= 50) {
+        restTime = 8 * 60 // 8 minutes
+      } else if (minutesOfFocus > 50 && minutesOfFocus <= 90) {
+        restTime = 10 * 60 // 10 minutes
+      } else {
+        restTime = 15 * 60 // 15 minutes
+      }
     }
+
+    setIsCountingTime(false)
+    setSecondsAmount(restTime)
+    setIsFocusTime(false)
+    toast.success('Período de foco finalizado.', {
+      icon: <Briefcase />,
+    })
   }
 
   function startBreakTime() {
@@ -85,7 +98,11 @@ export function Home() {
   return (
     <>
       <Helmet title="Home" />
+
+      <FlowmodoroTypeToggle flowType={flowType} setFlowType={setFlowType} />
+
       <Clock secondsAmount={secondsAmount} />
+
       <HomeTimeButton
         isFocusTime={isFocusTime}
         isCountingTime={isCountingTime}
