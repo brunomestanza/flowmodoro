@@ -11,8 +11,8 @@ import { router } from './routes'
 export function App() {
   return (
     <HelmetProvider>
-      <Helmet titleTemplate="%s | Template" />
-      <ThemeProvider storageKey="template-theme" defaultTheme="system">
+      <Helmet titleTemplate="%s | FlowTrack" />
+      <ThemeProvider storageKey="flow-track-theme" defaultTheme="system">
         <Analytics />
         <Toaster richColors />
         <RouterProvider router={router} />
