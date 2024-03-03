@@ -30,12 +30,18 @@ export function FlowmodoroTypeToggle({
         value={flowType}
         onValueChange={handleSetFlowType}
       >
-        <ToggleGroupItem value="dev-suggestion" aria-label="Toggle bold">
+        <ToggleGroupItem
+          value="dev-suggestion"
+          aria-label="Ativar sugestão do desenvolvedor"
+        >
           <span className="flex items-center gap-2">
             <TerminalSquare />
           </span>
         </ToggleGroupItem>
-        <ToggleGroupItem value="zoe-suggestion" aria-label="Toggle italic">
+        <ToggleGroupItem
+          value="zoe-suggestion"
+          aria-label="Ativar sugestão de Zoe Read Bivens"
+        >
           <span className="flex items-center gap-2">
             <FileClock />
           </span>
