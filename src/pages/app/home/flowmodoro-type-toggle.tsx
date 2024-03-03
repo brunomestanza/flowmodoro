@@ -52,8 +52,8 @@ export function FlowmodoroTypeToggle({
           ? 'Sugestão do desenvolvedor'
           : 'Sugestão de Zoë Read-Bivens'}
       </p>
-      <Button variant="link" asChild>
-        <Link to="/sobre-o-flowmodoro" className="px-0">
+      <Button variant="link" className="px-0" asChild>
+        <Link to="/sobre-o-flowmodoro">
           Para mais informações, clique aqui.
         </Link>
       </Button>
