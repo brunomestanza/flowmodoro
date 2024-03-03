@@ -46,13 +46,6 @@ export function HomeTimeButton({
       <>
         <Button onClick={startBreakTime}>Iniciar tempo de pausa</Button>
         <p className="text-center text-sm text-muted-foreground">
-          O cálculo do tempo de pausa é{' '}
-          <span className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
-            tempo de foco / 5 minutos
-          </span>
-          .
-        </p>
-        <p className="text-center text-sm text-muted-foreground">
           Durante esse tempo, tente descansar os olhos, não olhar para telas e
           tomar um ar.
         </p>
