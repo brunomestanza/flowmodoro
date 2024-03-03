@@ -17,13 +17,6 @@ export function Clock({ secondsAmount }: ClockProps) {
         <ClockDigit actualDigitIndex={Number(seconds[0])} />
         <ClockDigit actualDigitIndex={Number(seconds[1])} />
       </div>
-      {/* <div>
-        <span className="text-[120px]">{minutes[0]}</span>
-        <span className="text-[120px]">{minutes[1]}</span>
-        <span className="text-[120px]">:</span>
-        <span className="text-[120px]">{seconds[0]}</span>
-        <span className="text-[120px]">{seconds[1]}</span>
-      </div> */}
     </div>
   )
 }
